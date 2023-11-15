@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .add-new-project-button {
+            margin: 20px;
+        }
+        a, button {
+            font-size: 30px;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin</h1>
+    <div class="add-new-project-button">
+        <a href="{{ url_for('add_new_project') }}"><button>Add Project</button></a>
+    </div>
+</body>
+</html>

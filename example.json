@@ -1,0 +1,18 @@
+{
+    "name": "WebPortfolio",
+    "interface": "Web",
+    "programming_languages": ["python"],
+    "technologies": {
+        "databases": ["MongoDB"],
+        "libraries": ["fastapi"],
+        "deployment": ["Docker", "Docker Compose"],
+        "tools": ["psql"],
+        "other": ["Elasticsearch"]
+    },
+    "tags": ["NotToyProject"],
+    "status": "IN PROGRESS",
+    "timestamps": {
+        "started": 1699794144,
+        "completed": null
+    }
+}

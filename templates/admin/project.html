@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Project Form</h2>
+    <form method="post" action="{{ url_for('process_add_project') }}" enctype="application/json">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="interface">Interface:</label>
+        <select id="interface" name="interface">
+            {% for iface in Project.Interface %}
+                <option value="{{ iface.value }}">{{ iface.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="programming_languages">Programming Languages:</label>
+        <select name="programming_languages" multiple>
+            {% for lang in Project.ProgrammingLanguage %}
+                <option value="{{ lang.value }}">{{ lang.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="technologies">Technologies:</label>
+        <label for="databases">Databases:</label>
+        <select name="technologies.databases" multiple>
+            {% for db in Project.TechnologyStack.Database %}
+                <option value="{{ db.value }}">{{ db.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="libraries">Libraries:</label>
+        <select name="technologies.libraries" multiple>
+            {% for lib in Project.TechnologyStack.Library %}
+                <option value="{{ lib.value }}">{{ lib.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="deployment">Deployment:</label>
+        <select name="technologies.deployment" multiple>
+            {% for deploy in Project.TechnologyStack.Deployment %}
+                <option value="{{ deploy.value }}">{{ deploy.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="tools">Tools:</label>
+        <select name="technologies.tools" multiple>
+            {% for tool in Project.TechnologyStack.Tool %}
+                <option value="{{ tool.value }}">{{ tool.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="technologies.other">Other:</label>
+        <input type="text" name="other">
+
+        <label for="tags">Tags:</label>
+        {% for tag in Project.Tag %}
+            <option value="{{ tag.value }}">{{ tag.value }}</option>
+        {% endfor %}
+
+        <label for="status">Status:</label>
+        <select name="status">
+            {% for stat in Project.Status %}
+                <option value="{{ stat.value }}">{{ stat.value }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="meta">MetaInfo</label>
+        <label for="meta.timestamps.started">Started:</label>
+        <input type="number" name="meta.timestamps.started" placeholder=111>
+        <label for="meta.timestamps.finished">Finished:</label>
+        <input type="number" name="meta.timestamps.finished" placeholder=999>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>

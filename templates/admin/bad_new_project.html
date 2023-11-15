@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}New Project{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <h2>Bad New Project</h2>
+    <div>
+        {{ error | replace(' ', '&nbsp;') | replace('\n', '<br>') | safe }}
+    </div>
+{% endblock %}
